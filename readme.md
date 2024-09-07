@@ -10,6 +10,7 @@ public class App {
     public static void main(String[] args) {
         final int size = 2, shuffle_times = 2;
 
+        System.out.println("*****Initialize*****");
         RubiksCube cube = new RubiksCube(size);
         cube.print();
 
