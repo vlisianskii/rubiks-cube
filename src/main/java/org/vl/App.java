@@ -7,7 +7,7 @@ import org.vl.shuffle.Solver;
 
 public class App {
     public static void main(String[] args) {
-        final int size = 2, shuffle_times = 2;
+        final int size = 3, shuffle_times = 1;
 
         System.out.println("*****Initialize*****");
         RubiksCube cube = new RubiksCube(size);

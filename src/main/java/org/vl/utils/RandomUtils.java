@@ -1,21 +1,16 @@
 package org.vl.utils;
 
 import java.util.EnumSet;
+import java.util.Random;
 
 public class RandomUtils {
+    private static final Random RANDOM = new Random();
+
     public static <T extends Enum<T>> int randomOrdinalOfEnum(Class<T> type) {
-        return randomNumberBetween(minOrdinal(type), maxOrdinal(type));
+        return RANDOM.nextInt(EnumSet.allOf(type).size());
     }
 
     public static int randomNumberBetween(int min, int max) {
-        return (int) ((Math.random() * (max + 1 - min)) + min);
-    }
-
-    private static <T extends Enum<T>> int minOrdinal(Class<T> type) {
-        return EnumSet.allOf(type).stream().mapToInt(Enum::ordinal).min().orElse(0);
-    }
-
-    private static <T extends Enum<T>> int maxOrdinal(Class<T> type) {
-        return EnumSet.allOf(type).stream().mapToInt(Enum::ordinal).max().orElse(0);
+        return RANDOM.nextInt((max - min) + min);
     }
 }

@@ -8,9 +8,9 @@ public abstract class ConditionalShuffle {
     public void shuffle(RubiksCube cube) {
         int times = 0;
         while (!condition(cube, times)) {
-            Side side = getSide();
+            Side side = getSide(cube);
             int index = getIndex(cube);
-            Direction direction = getDirection();
+            Direction direction = getDirection(cube);
             System.out.printf("<%s::%s::%s>\n", side, index, direction);
 
             cube.rotate(side, index, direction);
@@ -21,8 +21,8 @@ public abstract class ConditionalShuffle {
         }
     }
 
-    protected abstract Side getSide();
+    protected abstract Side getSide(RubiksCube cube);
     protected abstract int getIndex(RubiksCube cube);
-    protected abstract Direction getDirection();
+    protected abstract Direction getDirection(RubiksCube cube);
     protected abstract boolean condition(RubiksCube cube, int times);
 }

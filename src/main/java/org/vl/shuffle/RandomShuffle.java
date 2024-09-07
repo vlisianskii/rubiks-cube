@@ -8,17 +8,17 @@ import static org.vl.utils.RandomUtils.*;
 
 public abstract class RandomShuffle extends ConditionalShuffle {
     @Override
-    protected Side getSide() {
+    protected Side getSide(RubiksCube cube) {
         return Side.values()[randomOrdinalOfEnum(Side.class)];
     }
 
     @Override
     protected int getIndex(RubiksCube cube) {
-        return randomNumberBetween(0, cube.getSize() - 1);
+        return randomNumberBetween(0, cube.getSize());
     }
 
     @Override
-    protected Direction getDirection() {
+    protected Direction getDirection(RubiksCube cube) {
         return Direction.values()[randomOrdinalOfEnum(Direction.class)];
     }
 }
