@@ -26,8 +26,6 @@ public class RubiksCube {
     }
 
     public void rotate(Side side, int x, Direction direction) {
-        System.out.printf("<%s::%s::%s>\n", side, x, direction);
-
         Face face = faces.get(side);
         Color[] colors = face.getValues(x, direction);
         for (Side nextSide : getSides(side, direction)) {
@@ -37,8 +35,6 @@ public class RubiksCube {
             colors = nextColors;
         }
         face.setValues(x, direction, colors);
-
-        print();
     }
 
     public void print() {

@@ -8,7 +8,14 @@ public abstract class ConditionalShuffle {
     public void shuffle(RubiksCube cube) {
         int times = 0;
         while (!condition(cube, times)) {
-            cube.rotate(getSide(), getIndex(cube), getDirection());
+            Side side = getSide();
+            int index = getIndex(cube);
+            Direction direction = getDirection();
+            System.out.printf("<%s::%s::%s>\n", side, index, direction);
+
+            cube.rotate(side, index, direction);
+
+            cube.print();
             System.out.printf("<%s> times\n\n", times);
             times++;
         }
