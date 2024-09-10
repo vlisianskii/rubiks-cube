@@ -10,7 +10,7 @@ import static org.vl.utils.RandomUtils.randomNumberBetween;
 import static org.vl.utils.RandomUtils.randomOrdinalOfEnum;
 
 @AllArgsConstructor
-public class RandomShuffler extends Shuffler {
+public class RandomShuffler extends BaseRotation {
     private final int n;
 
     @Override

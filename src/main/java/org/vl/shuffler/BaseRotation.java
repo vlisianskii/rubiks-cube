@@ -3,7 +3,7 @@ package org.vl.shuffler;
 import org.vl.cube.Rotation;
 import org.vl.cube.RubiksCube;
 
-public abstract class Shuffler {
+public abstract class BaseRotation {
     public int rotate(RubiksCube cube) {
         int times = 0;
         while (!condition(cube, times)) {

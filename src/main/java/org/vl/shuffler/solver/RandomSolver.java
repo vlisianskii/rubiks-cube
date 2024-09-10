@@ -1,4 +1,4 @@
-package org.vl.shuffler;
+package org.vl.shuffler.solver;
 
 import org.vl.cube.Direction;
 import org.vl.cube.Rotation;
@@ -8,7 +8,7 @@ import org.vl.cube.Side;
 import static org.vl.utils.RandomUtils.randomNumberBetween;
 import static org.vl.utils.RandomUtils.randomOrdinalOfEnum;
 
-public class RandomSolver extends Shuffler {
+public class RandomSolver extends AbstractSolver {
     @Override
     protected Rotation rotation(RubiksCube cube, int times) {
         return Rotation.builder()
@@ -16,10 +16,5 @@ public class RandomSolver extends Shuffler {
                 .index(randomNumberBetween(0, cube.getSize() - 1))
                 .direction(Direction.values()[randomOrdinalOfEnum(Direction.class)])
                 .build();
-    }
-
-    @Override
-    protected boolean condition(RubiksCube cube, int times) {
-        return cube.isSolved();
     }
 }
