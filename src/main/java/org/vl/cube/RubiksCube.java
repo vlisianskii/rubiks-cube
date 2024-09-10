@@ -25,16 +25,24 @@ public class RubiksCube {
         );
     }
 
+    public void rotate(Rotation rotation) {
+        rotate(rotation.getSide(), rotation.getIndex(), rotation.getDirection());
+    }
+
     public void rotate(Side side, int x, Direction direction) {
-        Face face = faces.get(side);
+        Face face = getFace(side);
         Color[] colors = face.getValues(x, direction);
         for (Side nextSide : getSides(side, direction)) {
-            Face nextFace = faces.get(nextSide);
+            Face nextFace = getFace(nextSide);
             Color[] nextColors = nextFace.getValues(x, direction);
             nextFace.setValues(x, direction, colors);
             colors = nextColors;
         }
         face.setValues(x, direction, colors);
+    }
+
+    public Face getFace(Side side) {
+        return faces.get(side);
     }
 
     public void print() {

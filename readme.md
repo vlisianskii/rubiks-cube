@@ -15,12 +15,12 @@ public class App {
         cube.print();
 
         System.out.printf("*****Shuffling <%s> times*****\n", shuffle_times);
-        ConditionalShuffle shuffle = new Shuffler(shuffle_times);
-        shuffle.shuffle(cube);
+        ConditionalShuffle shuffler = new Shuffler(shuffle_times);
+        shuffler.shuffler(cube);
 
         System.out.println("*****Solving*****");
         ConditionalShuffle solver = new Solver();
-        solver.shuffle(cube);
+        solver.shuffler(cube);
     }
 }
 
